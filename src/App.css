@@ -1,38 +1,144 @@
-.App {
+ul{
+  list-style: none;
+  padding: 0;
+}
+.home{
+  text-decoration: none;
+  color: #7f8184;
+}
+.navContainer{
+  background-color: #f3f3f3;  
+}
+.innerNav{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.innerNav ul{
+  display: none;
+  padding-left: 80px;
+}
+.innerNav ul li{
+  cursor: pointer;
+}
+.hamburger{
+  width: 22px;
+  height: 18px;
+  cursor: pointer;
+}
+.main-bg{
+  height: 30vh;
+  background-image: url(coffee-23901362.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% 20%;
+}
+.sort{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 20px;
+}
+.expensiveBtn, .chipBtn, .abcBtn{
+  font-size: 14px;
+  background-color: white;
+  border: 0;
+  padding-left: 0;
+  padding-right: 15px;
+  color: grey;
+  cursor: pointer;
+}
+.cardContainer{
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.eachCard{
+  margin-bottom: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.eachCard img{
+  width: 80%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+footer{
+  background-color: #7f8184;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.innerFooter{
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.innerFooter div{ 
+  flex: 1 1 50%;
+}
+.innerFooter div ul li{
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.innerFooter div ul li span{
+  font-size: 12px;
+}
+.icon{
+  width: 17px;
+  height: 17px;
+  padding: 12px;
+  border-radius: 17px;
+  background-color: white;
+}
+.underFooter{
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.underFooter p{
+  font-size: 13px;
+  padding: 20px 0;
+  margin: 0;
+}
+@media(min-width: 768px){
+  .innerNav{
+    justify-content: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+  .innerNav ul{
+    display: unset;
+  }
+  .innerNav ul li{
+    display: inline;
+    margin-right: 30px;
+  }
+  .hamburger{
+    display: none;
+  }
+  .main-bg{
+    height: 30vh;
+    background-attachment: fixed;
+  }
+  .cardContainer{
+    grid-template-columns: repeat(3,1fr);
+  }
+  .innerFooter div{ 
+    flex: 1 1 33%;
+  }
+  .follow ul li{
+    display: inline;
+    margin-right: 30px;
+  }
+}
+@media(min-width: 1024px){
+  .main-bg{
+    height: 40vh;
+  }
+  .expensiveBtn, .chipBtn, .abcBtn{
+    font-size: 16px;
+  }
+  .cardContainer{
+    grid-template-columns: repeat(4,1fr);
   }
 }
