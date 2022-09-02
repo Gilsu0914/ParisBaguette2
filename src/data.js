@@ -5,7 +5,7 @@ let data = [
     content: "알알이 톡톡 터지는 샤인머스캣 토핑과의 조합",
     price: "55,000원",
     sort:"cake",
-    image: "./greencake.png",
+    image: "/greencake.png",
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ let data = [
     content: "향긋한 부추와 버섯까지! 게다가 바삭바삭함은 덤",
     price: "2,600원",
     sort:"bread",
-    image: "./koroke.jpg",
+    image: "/koroke.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ let data = [
     content: "쫄깃,촉촉,부드러움. 삼박자를 다 갖춘 풍성한 식감",
     price: "2,500원",
     sort:"bread",
-    image: "./kwabegi.jpg",
+    image: "/kwabegi.jpg",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ let data = [
     content: "입속에 퍼지는 부드럽고 진한 풍미",
     price: "5,800원",
     sort:"bread",
-    image: "./morningtoast.jpg",
+    image: "/morningtoast.jpg",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ let data = [
     content: "치즈와 소세지와 페스츄리가 만난 앙상블",
     price: "3,000원",
     sort:"bread",
-    image: "./cheesesausagepastry.png",
+    image: "/cheesesausagepastry.png",
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ let data = [
     content: "중독성있는 겉바속촉과 단짠단짠",
     price: "3,000원",
     sort:"bread",
-    image: "./coffeebon.png",
+    image: "/coffeebon.png",
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ let data = [
     content: "대한민국을 대표하는 근본빵!",
     price: "3,200원",
     sort:"bread",
-    image: "./sausagepizza.jpg",
+    image: "/sausagepizza.jpg",
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ let data = [
     content: "보고만 있어도 미소가 지어지는 사랑스러움",
     price: "41,000원",
     sort:"cake",
-    image: "./smilecake.png",
+    image: "/smilecake.png",
   },
 ];
 

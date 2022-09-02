@@ -10,6 +10,9 @@ function Footer(){
             <li>브랜드소개</li>
             <li>윤리신고센터</li>
             <li>채용</li>
+            <li>이용약관</li>
+            <li>개인정보처리방침</li>
+            <li>이메일수집거부</li>
           </ul>
         </div>
         <div className="contact">

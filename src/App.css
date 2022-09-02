@@ -7,7 +7,10 @@ ul{
   color: #7f8184;
 }
 .navContainer{
-  background-color: #f3f3f3;  
+  background-color: #f8f8f8;  
+}
+.home{
+  cursor: pointer;
 }
 .innerNav{
   max-width: 1200px;
@@ -17,12 +20,21 @@ ul{
   justify-content: space-between;
   align-items: center;
 }
+.navMenu{
+  text-decoration: none;
+  color: black;
+}
 .innerNav ul{
   display: none;
-  padding-left: 80px;
 }
 .innerNav ul li{
-  cursor: pointer;
+  font-size: 15px;
+  display: inline;
+  padding-left:30px;
+}
+.menuList{
+  text-decoration: none;
+  color: black;
 }
 .hamburger{
   width: 22px;
@@ -35,35 +47,10 @@ ul{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40% 20%;
-}
-.sort{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px 20px;
-}
-.expensiveBtn, .chipBtn, .abcBtn{
-  font-size: 14px;
-  background-color: white;
-  border: 0;
-  padding-left: 0;
-  padding-right: 15px;
-  color: grey;
-  cursor: pointer;
-}
-.cardContainer{
-  max-width: 1200px;
-  margin: 0 auto 30px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-align: center;
-}
-.eachCard{
-  margin-bottom: 10px;
-}
-.eachCard img{
-  width: 80%;
+  margin-bottom: 30px;
 }
 footer{
+  margin-top: 30px;
   background-color: #7f8184;
   color: white;
 }
@@ -102,16 +89,102 @@ footer{
   padding: 20px 0;
   margin: 0;
 }
+.follow ul li{
+  display: inline;
+  margin-right: 30px;
+}
+/*router 메인쇼케이스*/
+.MainShowCase{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.pangMenu{
+  border-bottom: 1px solid grey;
+  margin-bottom: 20px;
+}
+.pangMenu ul{
+  display: flex;
+  justify-content: space-around;
+}
+.sort{
+  margin-bottom: 20px;
+  text-align: right;
+}
+.sort button:before{
+  content: "|";
+  margin-right: 10px;
+}
+.expensiveBtn::before{
+  display: none;
+}
+.expensiveBtn, .chipBtn, .abcBtn{
+  font-size: 13px;
+  background-color: white;
+  border: 0;
+  padding-left: 0;
+  padding-right: 15px;
+  color: grey;
+  cursor: pointer;
+}
+.cardContainer{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+.eachCard{
+  padding: 20px 0 10px;
+}
+.eachCard:hover{
+  transition: 0.6s;
+  box-shadow: 0px 0px 10px rgb(240, 240, 240);
+}
+.eachCard img{
+  width: 80%;
+}
+/*router 디테일*/
+.Detail{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.upDetail{
+  width: 100%;
+}
+.imgContainer{
+  width: 100%;
+}
+.imgContainer img{
+  width: 100%;
+}
+.description{
+  width: 100%;
+}
+.description h1{
+  font-size: 38px;
+  font-weight: 750;
+  margin-top: 10px;
+}
+.allergy{
+  color: rgb(207, 93, 93);
+}
+.desLine{
+  border: 0.5px solid rgb(195, 195, 195);
+  margin: 30px 0;
+}
+.orderBtn{
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px 0;
+  border: 0;
+  cursor: pointer;
+}
+
 @media(min-width: 768px){
-  .innerNav{
-    justify-content: flex-start;
-  }
   .innerNav ul{
     display: unset;
-  }
-  .innerNav ul li{
-    display: inline;
-    margin-right: 30px;
   }
   .hamburger{
     display: none;
@@ -126,9 +199,26 @@ footer{
   .innerFooter div{ 
     flex: 1 1 33%;
   }
-  .follow ul li{
-    display: inline;
-    margin-right: 30px;
+  /*router 메인쇼케이스*/
+  .pangMenu ul li{
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  /*router 디테일*/
+  .upDetail{
+    display: flex;
+    justify-content: space-between;
+  }
+  .imgContainer{
+    width: 46vw;
+    height: 46vw;
+  }
+  .description{
+    width: 45vw;
+  }
+  .description h1{
+    margin-top: 0px;
   }
 }
 @media(min-width: 1024px){
@@ -140,5 +230,11 @@ footer{
   }
   .cardContainer{
     grid-template-columns: repeat(4,1fr);
+  }
+  .upDetail{
+    display: normal;
+  }
+  .imgContainer{
+    margin-right: 30px;
   }
 }
