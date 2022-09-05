@@ -12,6 +12,7 @@ let data = [
     sugars: 17,
     fat: 10,
     protein: 4,
+    allergy:"밀, 계란, 대두, 우유",
   },
   {
     id: 1,
@@ -26,6 +27,7 @@ let data = [
     sugars: 9,
     fat: 3.6,
     protein: 7,
+    allergy:"밀, 계란, 돼지고기",
   },
   {
     id: 2,
@@ -40,6 +42,7 @@ let data = [
     sugars: 9,
     fat: 2.6,
     protein: 4,
+    allergy:"밀, 대두, 우유",
   },
   {
     id: 3,
@@ -54,6 +57,7 @@ let data = [
     sugars: 7,
     fat: 9,
     protein: 8,
+    allergy:"밀, 계란, 대두, 우유",
   },
   {
     id: 4,
@@ -68,6 +72,7 @@ let data = [
     sugars: 3,
     fat: 11,
     protein: 12,
+    allergy:"밀, 계란, 돼지고기",
   },
   {
     id: 5,
@@ -82,6 +87,7 @@ let data = [
     sugars: 13,
     fat: 14,
     protein: 6,
+    allergy:"밀, 계란, 대두, 견과류",
   },
   {
     id: 6,
@@ -96,6 +102,7 @@ let data = [
     sugars: 9,
     fat: 5,
     protein: 7,
+    allergy:"밀, 계란, 돼지고기",
   },
   {
     id: 7,
@@ -110,6 +117,7 @@ let data = [
     sugars: 31,
     fat: 6,
     protein: 3,
+    allergy:"밀, 계란, 우유, 땅콩, 호두, 복숭아, 오렌지, 동물유지",
   },
 ];
 

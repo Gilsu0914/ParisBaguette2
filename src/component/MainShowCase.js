@@ -1,7 +1,10 @@
 import react from 'react';
+import {useState} from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 
-function MainShowCase({pang, pang2, pang3, setPang}){
+function MainShowCase({pang, pang2, pang3, pang4, setPang}){
+
+  let [count, setCount] = useState(0);
 
   return (
     <div className='MainShowCase'>
@@ -41,8 +44,22 @@ function MainShowCase({pang, pang2, pang3, setPang}){
       </div>
       <div className='moreBtnContainer'>
         <button className='moreBtn' onClick={()=>{
-          let copy = [...pang, ...pang2];
-          setPang(copy);
+          setCount(++count);
+          if(count == 1){
+            let copy = [...pang, ...pang2];
+            setPang(copy);
+          }
+          else if(count == 2){
+            let copy = [...pang, ...pang3];
+            setPang(copy);
+          }
+          else if(count == 3){
+            let copy =[...pang, ...pang4];
+            setPang(copy);
+          }
+          else{
+            alert('더이상 상품이 없습니다.');
+          }
         }}>더보기</button>
       </div>
     </div>

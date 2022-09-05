@@ -32,14 +32,14 @@ function Detail({pang}){
           <p>가격 {idSynchro.price}</p>
           <p className="desLine desLine1"></p>
           <h4 className="allergy">알레르기 정보</h4>
-          <p>본 제품은 밀, 계란, 대두, 우유가 함유되어 있습니다.</p>
+          <p>본 제품은 {idSynchro.allergy} 함유 제품입니다.</p>
           <p className="desLine desLine2"></p>
           <p>
-            <button className="orderBtn">주문하기</button>
+            <button className="orderBtn">장바구니</button>
           </p>
           {
             notice == true ?
-            <p className="notice">곧 사라져요~ 지금 주문시 포인트적립이 <span>2배!</span></p>
+            <p className="notice">곧 사라져요~! 지금 주문시 포인트적립이 <span>2배!</span></p>
             : <p className="noticeOff">곧 사라져요~ 지금 주문시 포인트적립이 <span>2배!</span></p>
           }
         </div>
@@ -54,7 +54,7 @@ function Detail({pang}){
             <thead>
               <tr>
                 <th className='leftNutriTitle'>1회 영양성분</th>
-                <th className='rightNutriTitle'>100g당 수치</th>
+                <th className='rightNutriTitle'>100g당</th>
               </tr>
             </thead>
             <tbody>

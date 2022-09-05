@@ -12,6 +12,7 @@ let data2 = [
     sugars: 10,
     fat: 6,
     protein: 3,
+    allergy:"밀, 계란, 동물유지, 우유"
   },
   {
     id: 9,
@@ -26,6 +27,7 @@ let data2 = [
     sugars: 25,
     fat: 12,
     protein: 7,
+    allergy:"밀, 계란, 대두, 우유"
   },
   {
     id: 10,
@@ -40,6 +42,7 @@ let data2 = [
     sugars: 12,
     fat: 4.3,
     protein: 3,
+    allergy:"밀, 계란, 동물유지, 우유"
   },
   {
     id: 11,
@@ -54,6 +57,7 @@ let data2 = [
     sugars: 20,
     fat: 2.8,
     protein: 10,
+    allergy:"닭고기",
   },
   {
     id: 12,
@@ -68,6 +72,7 @@ let data2 = [
     sugars: 5,
     fat: 1.3,
     protein: 6,
+    allergy:"닭고기",
   },
   {
     id: 13,
@@ -82,6 +87,7 @@ let data2 = [
     sugars: 25,
     fat: 8,
     protein: 6,
+    allergy:"밀, 계란, 대두, 호두, 땅콩, 견과류",
   },
   {
     id: 14,
@@ -96,6 +102,7 @@ let data2 = [
     sugars: 14,
     fat: 8,
     protein: 4,
+    allergy:"밀, 계란, 대두, 우유",
   },
   {
     id: 15,
@@ -110,6 +117,7 @@ let data2 = [
     sugars: 9,
     fat: 2,
     protein: 11,
+    allergy:"밀, 닭고기",
   },
 ];
 
