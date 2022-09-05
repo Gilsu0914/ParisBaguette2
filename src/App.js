@@ -3,6 +3,8 @@ import './App.css';
 import {useState} from 'react'; 
 import {Routes, Route, Link, useNavigate} from 'react-router-dom';
 import data from './data';
+import data2 from './data2';
+import data3 from './data3';
 import MainShowCase from './component/MainShowCase';
 import Detail from './component/Detail';
 import Footer from './component/Footer';
@@ -10,13 +12,9 @@ import Footer from './component/Footer';
 
 function App() {
 
-  let [pang, setPang] = useState(data)
-  {/*
-      Make a state that will contain key word
-      Make a function that will store the key word
-      When you click on the <li></li> run the function and store the key word
-      Make a terneray operator
-  */}
+  let [pang, setPang] = useState(data);
+  let [pang2,setPang2] = useState(data2);
+  let [pang3,setPand3] = useState(data3);
   let navigate = useNavigate();
 
   return (
@@ -35,11 +33,11 @@ function App() {
       <div className="main-bg"></div>
       
       <Routes>
-        <Route path="/" element={<div><MainShowCase pang={pang} /></div>} />
-        <Route path="/detail/:id" element={<div><Detail pang={pang}/></div>} />
+        <Route path="/" element={<div><MainShowCase pang={pang} pang2={pang2} pang3={pang3} setPang={setPang} setPang2={setPang2} /></div>} />
+        <Route path="/detail/:id" element={<div><Detail pang={pang} pang2={pang2} pang3={pang3} setPang={setPang} setPang2={setPang2} /></div>} />
         <Route path="*" element={<div>해당 페이지를 찾을 수 없습니다.</div>} />
       </Routes>
-
+      
       <Footer />
     </div>
   );

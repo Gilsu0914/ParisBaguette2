@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+  color: black;
+}
 ul{
   list-style: none;
   padding: 0;
@@ -107,8 +111,11 @@ footer{
   display: flex;
   justify-content: space-around;
 }
+.pangMenu ul li:hover{
+  color: rgb(154, 92, 192);
+}
 .sort{
-  margin-bottom: 20px;
+  margin: 30px 0 10px;
   text-align: right;
 }
 .sort button:before{
@@ -137,12 +144,56 @@ footer{
 }
 .eachCard:hover{
   transition: 0.6s;
-  box-shadow: 0px 0px 10px rgb(240, 240, 240);
+  box-shadow: 0px 0px 10px rgb(207, 207, 207);
 }
 .eachCard img{
   width: 80%;
 }
+.moreBtnContainer{
+  text-align: center;
+  max-width: 1200px;
+  margin: 20px 0;
+}
+.moreBtn{
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
 /*router 디테일*/
+@keyframes blink{
+  from{
+    opacity: 1;
+    background-color: rgb(255, 191, 168);
+  }
+  to{
+    opacity: 0.4;
+  }
+}
+.notice{
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: red;
+  margin: 0px;
+  padding: 20px 0;
+  animation: blink 1s ease-in-out infinite alternate;
+}
+.notice span{
+  font-weight: bolder;
+}
+.noticeOff{
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  visibility: hidden;
+  font-weight: bold;
+  margin: 0px;
+  padding: 20px 0;
+}
+.noticeOff span{
+  font-weight: bolder;
+}
 .Detail{
   max-width: 1200px;
   margin: 0 auto;
@@ -161,25 +212,69 @@ footer{
   width: 100%;
 }
 .description h1{
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 750;
   margin-top: 10px;
+}
+.description h4{
+  margin: 5px 0;
 }
 .allergy{
   color: rgb(207, 93, 93);
 }
 .desLine{
-  border: 0.5px solid rgb(195, 195, 195);
+  border: 0.5px solid rgb(220, 220, 220);
   margin: 30px 0;
 }
 .orderBtn{
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
   width: 100%;
   padding: 20px 0;
   border: 0;
   cursor: pointer;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.underDetail{
+  margin-top: 30px;
+}
+.review{
+  margin-bottom: 50px;
+}
+.review h2{
+  color: rgb(154, 92, 192);
+  font-weight: 900;
+}
+.review p{
+  line-height: 2;
+}
+.nutrition{
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: rgb(249, 249, 249);
+}
+.nutrition table{
+  width: 100%;
+}
+.nutrition table tr{
+  display: flex;
+  justify-content: space-between;
+}
+thead tr{
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+.leftNutriTitle{
+  width: 40%;
+}
+.leftNutri{
+  width: 40%;
+}
+.rightNutriTitle, .rightNutri{
+  width: 40%;
 }
 
 @media(min-width: 768px){
@@ -206,19 +301,37 @@ footer{
     cursor: pointer;
   }
   /*router 디테일*/
+  .notice{
+    font-size: 16px;
+  }
+  .Detail{
+    margin: 60px auto;
+  }
   .upDetail{
     display: flex;
     justify-content: space-between;
   }
   .imgContainer{
     width: 46vw;
-    height: 46vw;
   }
   .description{
     width: 45vw;
   }
   .description h1{
     margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .underDetail{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .review{
+    width: 46vw;
+    margin-bottom: 0;
+  }
+  .nutrition{
+    width: 45vw;
   }
 }
 @media(min-width: 1024px){
@@ -233,8 +346,12 @@ footer{
   }
   .upDetail{
     display: normal;
+    margin-bottom: 50px;
   }
-  .imgContainer{
+  .imgContainer, .review{
     margin-right: 30px;
+  }
+  .description h1{
+    font-size: 48px;
   }
 }
