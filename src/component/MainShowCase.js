@@ -74,7 +74,7 @@ function Card({pang}){
     })
   };
   return (
-    <div className="eachCard" onClick={()=>{scrollToTop();}}>
+    <div className="eachCard Product" onClick={()=>{scrollToTop();}}>
       <img src={process.env.PUBLIC_URL + pang.image} />
       <p>
       {pang.title}

@@ -2,7 +2,7 @@ import react, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-function Detail({pang, allPang}){
+function Detail({pang, chief}){
   
   useEffect(()=>{
     let timer = setTimeout(()=>{ setNotice(false) },10000);
@@ -44,7 +44,7 @@ function Detail({pang, allPang}){
       </div>
       <div className="underDetail">
         <div className="review">
-          <h2>원산지 정보</h2>
+          <h2>원산지 정보를 확인하세요.</h2>
           <p>{idSynchro.resource}</p>
         </div>
         <div className="nutrition">
@@ -82,12 +82,12 @@ function Detail({pang, allPang}){
       </div>
       <div className='heightLine'></div>
       <div className='recommend'>
-        <h1>OUR ALL PRODUCTS</h1>
+        <h2>만드신 분들을 소개합니다.</h2>
         <div className="cardContainer">
           {
-            allPang.map((a, i) => {
+            chief.map((a, i) => {
               return(
-                <Card allPang={allPang[i]}></Card>
+                <Card chief={chief[i]}></Card>
               );
             })
           }
@@ -97,11 +97,13 @@ function Detail({pang, allPang}){
   );
 };
 
-function Card({allPang}){
+function Card({chief}){
   return (
-    <div className="eachCard">
-      <img src={process.env.PUBLIC_URL + allPang.image}/>
-      <p>{allPang.title}</p>
+    <div className="eachCard Chief">
+      <img className='chiefImg' src={process.env.PUBLIC_URL + chief.image}/>
+      <h4>{chief.name}</h4>
+      <h5 className='state'>{chief.occupation}</h5>
+      <p className='introduce'>{chief.introduction}</p>
     </div>
   )
 };

@@ -6,6 +6,7 @@ import data from './data';
 import data2 from './data2';
 import data3 from './data3';
 import data4 from './data4';
+import chiefdata from './chiefdata';
 import MainShowCase from './component/MainShowCase';
 import Detail from './component/Detail';
 import Footer from './component/Footer';
@@ -16,11 +17,8 @@ function App() {
   let [pang2,setPang2] = useState(data2);
   let [pang3,setPann3] = useState(data3);
   let [pang4,setPang4] = useState(data4);
+  let [chief,setChief] = useState(chiefdata);
   let navigate = useNavigate();
-
-  let somePang = [];
-  let allPang = [...pang3, ...pang, ...pang4, ...pang2];
-  console.log(allPang)
 
   return (
     <div>
@@ -38,8 +36,8 @@ function App() {
       <div className="main-bg"></div>
       
       <Routes>
-        <Route path="/" element={<div><MainShowCase pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang}  /></div>} />
-        <Route path="/detail/:id" element={<div><Detail pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} allPang={allPang} setPang={setPang} /></div>} />
+        <Route path="/" element={<div><MainShowCase pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang} /></div>} />
+        <Route path="/detail/:id" element={<div><Detail pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang} chief={chief} /></div>} />
         <Route path="*" element={<div>해당 페이지를 찾을 수 없습니다.</div>} />
       </Routes>
       
