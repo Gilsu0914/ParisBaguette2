@@ -66,18 +66,13 @@ function MainShowCase({pang, pang2, pang3, pang4, setPang}){
   );
 };
 
-
-
-
 function Card({pang}){
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   };
-
   return (
     <div className="eachCard" onClick={()=>{scrollToTop();}}>
       <img src={process.env.PUBLIC_URL + pang.image} />
@@ -89,5 +84,7 @@ function Card({pang}){
     </div>
   )
 };
+
+
 
 export default MainShowCase;

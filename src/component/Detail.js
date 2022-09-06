@@ -1,7 +1,8 @@
 import react, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function Detail({pang}){
+
+function Detail({pang, allPang}){
   
   useEffect(()=>{
     let timer = setTimeout(()=>{ setNotice(false) },10000);
@@ -21,10 +22,7 @@ function Detail({pang}){
     <div className="Detail">
       <div className="upDetail">
         <div className="imgContainer">
-          <img
-            className="detailImage"
-            src={process.env.PUBLIC_URL + pang[id].image}
-          />
+          <img className="detailImage" src={process.env.PUBLIC_URL + pang[id].image}/>
         </div>
         <div className="description">
           <h1>{idSynchro.title}</h1>
@@ -82,11 +80,32 @@ function Detail({pang}){
           </table>
         </div>
       </div>
-      <div className=''>
-        
+      <div className='heightLine'></div>
+      <div className='recommend'>
+        <h1>OUR ALL PRODUCTS</h1>
+        <div className="cardContainer">
+          {
+            allPang.map((a, i) => {
+              return(
+                <Card allPang={allPang[i]}></Card>
+              );
+            })
+          }
+        </div>
       </div>
     </div>
   );
 };
+
+function Card({allPang}){
+  return (
+    <div className="eachCard">
+      <img src={process.env.PUBLIC_URL + allPang.image}/>
+      <p>{allPang.title}</p>
+    </div>
+  )
+};
+
+
 
 export default Detail;

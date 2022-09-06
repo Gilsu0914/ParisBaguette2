@@ -214,7 +214,8 @@ footer{
 .description h1{
   font-size: 32px;
   font-weight: 750;
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 .description h4{
   margin: 5px 0;
@@ -224,10 +225,9 @@ footer{
 }
 .desLine{
   border: 0.5px solid rgb(220, 220, 220);
-  margin: 30px 0;
 }
 .orderBtn{
-  margin-top: 20px;
+  margin-top: 60px;
   font-size: 18px;
   font-weight: bold;
   width: 100%;
@@ -276,7 +276,18 @@ thead tr{
 .rightNutriTitle, .rightNutri{
   width: 40%;
 }
-
+.heightLine{
+  margin: 60px auto;
+  width: 1px;
+  height: 100px;
+  border-right: 1px solid  rgb(216, 216, 216);
+}
+.recommend{
+  margin-top: 30px;
+}
+.recommend h1{
+  text-align: center;
+}
 @media(min-width: 768px){
   .innerNav ul{
     display: unset;
@@ -317,9 +328,9 @@ thead tr{
   .description{
     width: 45vw;
   }
+  
   .description h1{
     margin-top: 0px;
-    margin-bottom: 10px;
   }
   .underDetail{
     margin-top: 30px;
@@ -332,6 +343,10 @@ thead tr{
   }
   .nutrition{
     width: 45vw;
+  }
+  .heightLine{
+    margin: 80px auto;
+    height: 120px;
   }
 }
 @media(min-width: 1024px){

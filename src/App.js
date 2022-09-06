@@ -12,12 +12,15 @@ import Footer from './component/Footer';
 
 
 function App() {
-
   let [pang, setPang] = useState(data);
   let [pang2,setPang2] = useState(data2);
   let [pang3,setPann3] = useState(data3);
   let [pang4,setPang4] = useState(data4);
   let navigate = useNavigate();
+
+  let somePang = [];
+  let allPang = [...pang3, ...pang, ...pang4, ...pang2];
+  console.log(allPang)
 
   return (
     <div>
@@ -36,7 +39,7 @@ function App() {
       
       <Routes>
         <Route path="/" element={<div><MainShowCase pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang}  /></div>} />
-        <Route path="/detail/:id" element={<div><Detail pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang} /></div>} />
+        <Route path="/detail/:id" element={<div><Detail pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} allPang={allPang} setPang={setPang} /></div>} />
         <Route path="*" element={<div>해당 페이지를 찾을 수 없습니다.</div>} />
       </Routes>
       
