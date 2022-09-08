@@ -1,5 +1,6 @@
 import react, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 function Detail({pang, chief}){
@@ -20,6 +21,7 @@ function Detail({pang, chief}){
 
   return (
     <div className="Detail">
+      <h2 className='componentHead'>제품상세</h2>
       <div className="upDetail">
         <div className="imgContainer">
           <img className="detailImage" src={process.env.PUBLIC_URL + pang[id].image}/>
@@ -33,7 +35,9 @@ function Detail({pang, chief}){
           <p>본 제품은 {idSynchro.allergy} 함유 제품입니다.</p>
           <p className="desLine desLine2"></p>
           <p>
-            <button className="orderBtn">장바구니</button>
+            <button className="orderBtn" onClick={() => {
+              alert('상품이 장바구니에 담겼습니다.');
+            }}>장바구니</button>
           </p>
           {
             notice == true ?
@@ -107,7 +111,5 @@ function Card({chief}){
     </div>
   )
 };
-
-
 
 export default Detail;

@@ -1,6 +1,5 @@
-import react from 'react';
-import {useState} from 'react';
-import {Routes, Route, Link} from 'react-router-dom';
+import react, {useState}  from 'react';
+import {Link} from 'react-router-dom';
 
 function MainShowCase({pang, pang2, pang3, pang4, setPang}){
 
@@ -35,8 +34,8 @@ function MainShowCase({pang, pang2, pang3, pang4, setPang}){
         {
           pang.map((a, i) => {
           return(
-            <Link to={`/detail/${i}`}>
-              <Card pang={pang[i]}></Card>
+            <Link to={`/detail/${i}`} key={i}>
+              <Card pang={pang[i]} ></Card>
             </Link>
            );
           })

@@ -1,3 +1,6 @@
+body{
+  font-family: 'Apple SD 산돌고딕 Neo';
+}
 a{
   text-decoration: none;
   color: black;
@@ -6,15 +9,49 @@ ul{
   list-style: none;
   padding: 0;
 }
+.quick{
+  background-color: rgb(249, 251, 199);
+  padding: 8px 8px 4px 8px;
+
+  position: fixed;
+  right: 16px;
+  bottom: 80px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.quick2{
+  background-color: lavender;
+  padding: 8px;
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: 0.5s;
+}
+.quick2:hover{
+  background-color: rgb(254, 208, 222);
+}
+.sign{
+  width: 36px;
+  height: 34px;
+}
+.sign2{
+  width: 36px;
+  height: 30px;
+}
+.componentHead{
+  padding-left: 10px;
+  border-left: 8px solid gray;
+}
+/**/
 .home{
   text-decoration: none;
   color: #7f8184;
+  cursor: pointer;
 }
 .navContainer{
   background-color: #f8f8f8;  
-}
-.home{
-  cursor: pointer;
 }
 .innerNav{
   max-width: 1200px;
@@ -55,7 +92,7 @@ ul{
 }
 footer{
   margin-top: 30px;
-  background-color: #7f8184;
+  background-color: #afafaf;
   color: white;
 }
 .innerFooter{
@@ -97,7 +134,7 @@ footer{
   display: inline;
   margin-right: 30px;
 }
-/*router 메인쇼케이스*/
+/*Router 메인쇼케이스*/
 .MainShowCase{
   max-width: 1200px;
   margin: 0 auto;
@@ -170,30 +207,6 @@ footer{
     opacity: 0.4;
   }
 }
-.notice{
-  font-size: 12px;
-  text-align: center;
-  font-weight: 600;
-  color: red;
-  margin: 0px;
-  padding: 20px 0;
-  animation: blink 1s ease-in-out infinite alternate;
-}
-.notice span{
-  font-weight: bolder;
-}
-.noticeOff{
-  font-size: 12px;
-  text-align: center;
-  font-weight: 600;
-  visibility: hidden;
-  font-weight: bold;
-  margin: 0px;
-  padding: 20px 0;
-}
-.noticeOff span{
-  font-weight: bolder;
-}
 .Detail{
   max-width: 1200px;
   margin: 0 auto;
@@ -226,6 +239,9 @@ footer{
 .desLine{
   border: 0.5px solid rgb(220, 220, 220);
 }
+.desLine1{
+  margin-top: 60px;
+}
 .orderBtn{
   margin-top: 60px;
   font-size: 18px;
@@ -236,6 +252,30 @@ footer{
   cursor: pointer;
   background-color: white;
   border: 1px solid #ccc;
+}
+.notice{
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: red;
+  margin: 0px;
+  padding: 20px 0;
+  animation: blink 1s ease-in-out infinite alternate;
+}
+.notice span{
+  font-weight: bolder;
+}
+.noticeOff{
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  visibility: hidden;
+  font-weight: bold;
+  margin: 0px;
+  padding: 20px 0;
+}
+.noticeOff span{
+  font-weight: bolder;
 }
 .underDetail{
   margin-top: 30px;
@@ -262,7 +302,7 @@ footer{
   display: flex;
   justify-content: space-between;
 }
-thead tr{
+.nutrition thead tr{
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgb(216, 216, 216);
@@ -287,17 +327,133 @@ thead tr{
 }
 .recommend h2{
   text-align: center;
+  font-weight: 900;
 }
 .Chief{
-  padding: 20px 20px;
+  padding: 20px 15px;
+}
+.Chief h4{
+  font-weight: 900;
 }
 .introduce{
   text-align: justify;
   line-height: 2;
   font-size: 15px;
+  margin-top: 40px;
 }
-
+/*Router 카트*/
+.Cart{
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0 20px;
+}
+.Cart h4{
+  margin-top: 40px;
+}
+.Cart table{
+  width: 100%;
+  font-size: 11px;
+}
+.Cart table.selected{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.Cart th{
+  background-color: #f8f8f8;
+  padding: 20px 10px;
+}
+.Cart td{
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding: 20px 0;
+}
+.Cart input{
+  border: 1px solid rgb(185, 185, 185);
+  padding-left: 5px;
+  margin: 3px 0;
+}
+.reciever th, .payment th{
+  width: 76px;
+}
+.reciever td, .payment td{
+  padding-left: 15px;
+}
+.recieverName, .phoneNum{
+  width: 90px;
+}
+.postNum{
+  width: 75px;
+}
+.post{
+  width: 180px;
+}
+.searchPost{
+  height: 19.5;
+  font-weight: 900;
+  color: gray;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.request{
+  width: 180px;
+}
+.underRequest{
+  font-size: 10px;
+  margin-bottom: 0;
+  color: gray;
+}
+.credit{
+  position: relative;
+  top: 1px;
+}
+.orderArea{
+  text-align: center;
+}
+.orderBtn2{
+  margin-top: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px 0;
+  border: 0;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.countUp, .countDown{
+  cursor: pointer;
+  margin: 0 2px;
+  padding: 4px 6px;
+  background-color: white;
+  border: 1px solid grey;
+}
+::placeholder{
+  font-size: 11px;
+}
+.checkPay{
+  margin-top: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+.checkPay>input{
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+}
 @media(min-width: 768px){
+  .componentHead{
+    font-size: 36px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+  }
+  .quick{
+    right: 20px;
+    bottom: 100px;
+  }
+  .quick2{
+    right: 20px;
+    bottom: 30px;
+  }
   .innerNav ul{
     display: unset;
   }
@@ -337,7 +493,6 @@ thead tr{
   .description{
     width: 45vw;
   }
-  
   .description h1{
     margin-top: 0px;
   }
@@ -346,16 +501,61 @@ thead tr{
     display: flex;
     justify-content: space-between;
   }
+  .Chief{
+    padding:20px;
+  }
   .review{
     width: 46vw;
-    margin-bottom: 0;
   }
   .nutrition{
     width: 45vw;
   }
   .heightLine{
-    margin: 80px auto;
-    height: 120px;
+    margin: 120px auto;
+    height: 200px;
+  }
+  .recommend h2{
+    font-size: 38px;
+  }
+  /*Router 카트*/
+  .Cart{
+    margin: 60px auto;
+  }
+  .Cart h4{
+    font-size: 1.2rem;
+  }
+  .Cart th, .Cart td{
+    font-size: 1rem;
+  }
+  .Cart input{
+    height: 22px;
+  }
+  .reciever th, .payment th{
+    width: 180px;
+  }
+  .postNum{
+    width: 90px;
+  }
+  .post{
+    width: 400px;
+  }
+  .request{
+    width: 400px;
+  }
+  .credit{
+    top: 4px;
+  }
+  .orderBtn2{
+    width: 30%;
+    margin: 60px auto 0;
+  }
+  .countUp, .countDown{
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 4px 8px;
+  }
+  .checkPay{
+    font-size: 1rem;
   }
 }
 @media(min-width: 1024px){
@@ -366,6 +566,7 @@ thead tr{
     font-size: 16px;
   }
   .cardContainer{
+    margin-top: 60px;
     grid-template-columns: repeat(4,1fr);
   }
   .upDetail{
@@ -377,5 +578,12 @@ thead tr{
   }
   .description h1{
     font-size: 48px;
+  }
+  .Chief{
+    padding: 20px 40px;
+  }
+  .Cart h4{
+    margin-top: 60px;
+    font-size: 1.5rem;
   }
 }
