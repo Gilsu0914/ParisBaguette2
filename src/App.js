@@ -14,7 +14,6 @@ import Footer from './component/Footer';
 
 
 
-
 function App() {
   let [pang, setPang] = useState(data);
   let [pang2,setPang2] = useState(data2);
@@ -30,7 +29,7 @@ function App() {
   })}
 
   return (
-    <div>
+  <div>
     <div className='quick'>
         <img className='sign' src={process.env.PUBLIC_URL + '/call.png'} />
       </div>
@@ -52,6 +51,8 @@ function App() {
         </div>
       </div>
       <div className="main-bg"></div>
+      {/* 실험 */}
+      
       
       <Routes>
         <Route path="/" element={<div><MainShowCase pang={pang} pang2={pang2} pang3={pang3} pang4={pang4} setPang={setPang} /></div>} />
@@ -61,7 +62,7 @@ function App() {
       </Routes>
       
       <Footer />
-    </div>
+  </div>
   );
 }
 

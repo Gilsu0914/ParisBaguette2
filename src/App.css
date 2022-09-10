@@ -427,6 +427,12 @@ footer{
   background-color: white;
   border: 1px solid grey;
 }
+.deleteBtn{
+  cursor: pointer;
+  background-color: white;
+  padding: 4px 6px;
+  border: 1px solid gray;
+}
 ::placeholder{
   font-size: 11px;
 }

@@ -31,7 +31,7 @@ function Cart(){
                   <button className="countDown"> ↓ </button>
                 </td>
                 <td>{state.cart[i].price}</td>
-                <td>삭제</td>
+                <td> <button className='deleteBtn'> ✕ </button></td>
               </tr>
             );
           })}

@@ -20,14 +20,15 @@ function MainShowCase({pang, pang2, pang3, pang4, setPang}){
         <button className="expensiveBtn">높은가격순</button>
         <button className="chipBtn">낮은가격순</button>
         <button className="abcBtn"
-        //   onClick={()=>{
-        //   pang2.sort((a, b)=>{
-        //     if(a.title.toLowercase() > b.title.toLowercase()) return 1
-        //     else if(a.title.toLowercase() < b.title.toLowercase()) return -1
-        //     else return 0
-        //   })
-        //   setPang2(pang2);
-        // }}
+          onClick={()=>{
+          let copy =[...pang, ...pang2, ...pang3, ...pang4]
+
+          copy.sort((a, b)=>{
+            if(a.title.toLowercase() > b.title.toLowercase()) return 1
+            else if(a.title.toLowercase() < b.title.toLowercase()) return -1
+            else return 0
+          })
+         }}
         >가나다순</button>
       </div>
       <div className="cardContainer">

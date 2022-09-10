@@ -12,9 +12,15 @@ let cart = createSlice({
     },
     {
       id : 2, 
-      name : '꽈배기도넛', 
+      title : '꽈배기도넛', 
       count : 3,
       price : '2,500원',
+    },
+    {
+      id : 1, 
+      title : '유기농야채고로케', 
+      count : 1,
+      price : '2,600원',
     }
   ],
   reducer:{
