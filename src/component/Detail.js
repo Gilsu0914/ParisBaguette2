@@ -1,13 +1,21 @@
 import react, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import store, { addItem } from './../store';
+
 
 
 function Detail({pang, chief}){
   
   useEffect(()=>{
-    let timer = setTimeout(()=>{ setNotice(false) },10000);
-    
+    let storage = localStorage.getItem('watched');
+    storage = JSON.parse(storage);
+    storage.push(idSynchro.id);
+    storage = new Set(storage);
+    storage = Array.from(storage);
+    localStorage.setItem('watched', JSON.stringify(storage));
+
+    let timer = setTimeout(()=>{ setNotice(false) },10000); 
     return ()=>{//useEffect보다 먼저 실행
       clearTimeout(timer);
     }
@@ -18,6 +26,11 @@ function Detail({pang, chief}){
     return pang.id == id
   });
   let [notice,setNotice] = useState(true);
+  let [countNum, setCountNum] = useState(1);
+  let [totalPrice, setTotalPrice] = useState(idSynchro.price);
+  let [index, setIndex] = useState(0);
+  
+  let dispatch = useDispatch();
 
   return (
     <div className="Detail">
@@ -29,20 +42,49 @@ function Detail({pang, chief}){
         <div className="description">
           <h1>{idSynchro.title}</h1>
           <h4>{idSynchro.content}</h4>
-          <p>가격 {idSynchro.price}</p>
+          <p>판매가격: {idSynchro.price.toLocaleString('ko-KR')}원</p>
           <p className="desLine desLine1"></p>
           <h4 className="allergy">알레르기 정보</h4>
           <p>본 제품은 {idSynchro.allergy} 함유 제품입니다.</p>
           <p className="desLine desLine2"></p>
+          <button className='plusCount' onClick={()=>{ //올림버튼
+            ++ countNum;
+            setCountNum(countNum);
+            let plusPrice = countNum * idSynchro.price;
+            setTotalPrice(plusPrice);
+          }}> ↑ </button> 
+          <span className='count'>{countNum}개</span> {/*갯수*/}
+          <button className='minusCount' onClick={()=>{ //내림버튼
+            if(countNum > 1){
+              let plusPrice = countNum * idSynchro.price;
+              let minusPrice = plusPrice - idSynchro.price;
+              setTotalPrice(minusPrice);
+              -- countNum;
+              setCountNum(countNum);
+            }
+            else if(countNum = 1){
+              return 1;
+            }
+          }}> ↓ </button>
+          <span className='totalPrice'>금액: {totalPrice.toLocaleString('ko-KR')}원</span> {/* 담은금액 */}
           <p>
-            <button className="orderBtn" onClick={() => {
-              alert('상품이 장바구니에 담겼습니다.');
+            <button className="orderBtn" onClick={() => { //장바구니에 담기 버튼
+              if(countNum >= 1){
+                if(index == 1){
+                return alert('기존상품이 이미 장바구니 안에 있습니다.')
+                }
+                else if(index == 0){
+                dispatch(addItem( {id: `${idSynchro.id}`, title: `${idSynchro.title}`, count: countNum, price: `${idSynchro.price}`,totalPrice: totalPrice, image: `${idSynchro.image}`}));
+                alert('상품이 장바구니에 담겼습니다.');
+                setIndex(1);
+                }
+              }
             }}>장바구니</button>
           </p>
           {
             notice == true ?
-            <p className="notice">곧 사라져요~! 지금 주문시 포인트적립이 <span>2배!</span></p>
-            : <p className="noticeOff">곧 사라져요~ 지금 주문시 포인트적립이 <span>2배!</span></p>
+            <p className="notice">🎁 곧 사라져요~! 지금 주문시 사은품포함 <span>배송!</span></p>
+            : <p className="noticeOff">🎁 곧 사라져요~ 지금 주문시 사은품포함 <span>베송!</span></p>
           }
         </div>
       </div>
