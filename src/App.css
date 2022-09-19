@@ -475,7 +475,7 @@ i{
   width: 75px;
 }
 .post{
-  width: 180px;
+  width: 220px;
 }
 .searchPost{
   height: 19.5;
@@ -485,7 +485,7 @@ i{
   cursor: pointer;
 }
 .request{
-  width: 180px;
+  width: 220px;
 }
 .underRequest{
   font-size: 10px;
@@ -675,7 +675,7 @@ i{
     font-size: 1.1rem;
   }
   .Cart input{
-    height: 22px;
+    height: 24px;
   }
   .reciever th, .payment th{
     width: 180px;

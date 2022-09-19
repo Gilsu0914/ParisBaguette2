@@ -12,9 +12,6 @@ import Quick from './component/Quick';
 
 
 
-
-
-
 function App() {
   let storage = JSON.parse(sessionStorage.getItem('watched'))
   useEffect(()=>{
