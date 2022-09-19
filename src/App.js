@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect, useCallback } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import data from './data';
 import chiefdata from './chiefdata';
@@ -14,10 +14,12 @@ import Quick from './component/Quick';
 
 
 
+
 function App() {
+  let storage = JSON.parse(sessionStorage.getItem('watched'))
   useEffect(()=>{
-    if(localStorage.getItem('watched') == null){
-      localStorage.setItem('watched', JSON.stringify([ ]))
+    if(storage == null){
+      sessionStorage.setItem('watched', JSON.stringify([ ]))
     }
   },[]);
 
@@ -28,6 +30,11 @@ function App() {
   let [tab,setTab] = useState(0);
   let [moreNum, setMoreNum] = useState(1);
   let navigate = useNavigate();
+  const scrollToTop = ()=>{
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })}
 
 
   return (
@@ -166,6 +173,23 @@ function App() {
                 </div>
                 : null
               }
+              <div className='recentView'>
+                <h2>최근 본 상품</h2>
+                <div>
+                {
+                  storage !== null ? //최근 본 상품
+                  storage.map((a,i)=>{
+                    if(i < 4){
+                    return (
+                      <Link to={`/detail/${storage[i]}`} key={i}>
+                        <img src={process.env.PUBLIC_URL + pang[storage[i]].image} onClick={()=>{scrollToTop()}} />
+                      </Link>
+                    )}
+                  })
+                  : <p>최근 본 상품이 없습니다.</p>
+                }
+                </div>
+              </div>
               <div className='rollout'>
                 <h2>신상품 소개</h2>
                 <img className='eventDesktop' src={process.env.PUBLIC_URL + "/rollout.png"}/>
@@ -183,7 +207,7 @@ function App() {
         <Route path="/cart" element={<div><Cart /></div>}/>
         <Route path="*" element={<div className="page404"><h3>해당 페이지를 찾을 수 없습니다.</h3></div>}/>
       </Routes>
-      
+
       <Announce/>
       <Footer/>
       <Quick/>
@@ -200,9 +224,9 @@ function Card({pang}){
   };
   return (
     <div className="eachCard Product" onClick={()=>{scrollToTop();}}>
-      <p className="photo">
+      <div className="photo">
         <img src={process.env.PUBLIC_URL + pang.image} />
-      </p>
+      </div>
       <p className='minidesc'>{pang.title}</p>
       <p className='minidesc'>{pang.price.toLocaleString('ko-KR')}원</p>
     </div>

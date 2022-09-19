@@ -8,12 +8,11 @@ import store, { addItem } from './../store';
 function Detail({pang, chief}){
   
   useEffect(()=>{
-    let storage = localStorage.getItem('watched');
-    storage = JSON.parse(storage);
-    storage.push(idSynchro.id);
-    storage = new Set(storage);
-    storage = Array.from(storage);
-    localStorage.setItem('watched', JSON.stringify(storage));
+    let storage = JSON.parse(sessionStorage.getItem('watched'));
+    storage.unshift(pang[id].id);
+    storage = new Set(storage); //배열의 중복을 제거
+    storage = Array.from(storage); //다시 배열화
+    sessionStorage.setItem('watched', JSON.stringify(storage));
 
     let timer = setTimeout(()=>{ setNotice(false) },10000); 
     return ()=>{//useEffect보다 먼저 실행
