@@ -18,23 +18,27 @@ import Quick from './component/Quick';
 
 function App() {
 
+  //sessionStorage
   let storage = JSON.parse(sessionStorage.getItem('watched'))
   useEffect(()=>{
+    //sessionStorage
     if(storage == null){
       sessionStorage.setItem('watched', JSON.stringify([ ]))
     }
   },[]);
 
+  //캐로셀
   let slideRef = useRef();
   let [slideCount, setSlideCount] = useState(1)
   const handleSlider = slideCount =>{
     if(slideCount === 4){
-      slideRef.current.style.transform = 'translateX(0)'
+      slideRef.current.style.transform = 'translateX(0)';
     }else{
       slideRef.current.style.transform = `translateX( -${25 * slideCount}%)`;
     }
   };
   useEffect(()=>{
+    //캐로셀 4초마다 동작
     const interval = setTimeout(()=>{
       setSlideCount(()=>{
         if(slideCount < dataSlider.length){
@@ -43,32 +47,33 @@ function App() {
           setSlideCount(1);
         }
       });
-      handleSlider(slideCount);
+      handleSlider(slideCount); 
+    }, 4000);
+    //클리어
+    return()=> {
+      clearTimeout(interval);
+    } 
+  },[slideCount]);
 
-      return()=> {
-        clearTimeout(interval);
-      }
-    }, 5000);
-  });
-
+  //페이지전환시 스크롤초기화
   const scrollToTop = ()=>{
     window.scrollTo({
     top: 0,
     behavior: 'smooth'
   })}
 
+  //데이터
   let [pang, setPang] = useState(data);
-  let [chief,setChief] = useState(chiefdata);
   let [dataSlider, setDataSlider] = useState(data2);
+  let [chief,setChief] = useState(chiefdata);
+
   let [count, setCount] = useState(0);
   let [more, setMore] = useState(12);
   let [tab,setTab] = useState(0);
   let [moreNum, setMoreNum] = useState(1);
+
   let navigate = useNavigate();
   
-
-  
-
 
 
   return (
@@ -110,7 +115,7 @@ function App() {
                         if(i < more){
                         return (
                           <Link to={`/detail/${i}`} key={i}>
-                            <Card pang={pang[i]}></Card>
+                            <Card pang={pang[i]} scrollToTop={scrollToTop}></Card>
                           </Link>
                         )
                         }
@@ -147,7 +152,7 @@ function App() {
                       if(data.sort == 'bread'){
                         return (
                           <Link to={`/detail/${i}`} key={i}>
-                            <Card pang={pang[i]}></Card>
+                            <Card pang={pang[i]} scrollToTop={scrollToTop}></Card>
                           </Link>
                         )
                       }
@@ -164,7 +169,7 @@ function App() {
                       if(data.sort == 'cake'){
                         return (
                           <Link to={`/detail/${i}`} key={i}>
-                            <Card pang={pang[i]}></Card>
+                            <Card pang={pang[i]} scrollToTop={scrollToTop}></Card>
                           </Link>
                         )
                       }
@@ -181,7 +186,7 @@ function App() {
                       if(data.sort == 'desert'){
                         return (
                           <Link to={`/detail/${i}`} key={i}>
-                            <Card pang={pang[i]}></Card>
+                            <Card pang={pang[i]} scrollToTop={scrollToTop}></Card>
                           </Link>
                         )
                       }
@@ -198,7 +203,7 @@ function App() {
                       if(data.sort == 'salad'){
                         return (
                           <Link to={`/detail/${i}`} key={i}>
-                            <Card pang={pang[i]}></Card>
+                            <Card pang={pang[i]} scrollToTop={scrollToTop}></Card>
                           </Link>
                         )
                       }
@@ -224,7 +229,7 @@ function App() {
                 }
                 </div>
               </div>
-              <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} handleSlider={handleSlider}/>
+              <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} setSlideCount={setSlideCount}z   handleSlider={handleSlider}/>
             </div>
         }/>
         <Route path="/detail/:id" element={<div><Detail pang={pang} setPang={setPang} chief={chief}/></div>}/>
@@ -234,18 +239,12 @@ function App() {
 
       <Announce/>
       <Footer/>
-      <Quick/>
+      <Quick scrollToTop={scrollToTop}/>
     </div>
   );
 }
 
-function Card({pang}){
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  };
+function Card({pang, scrollToTop}){
   return (
     <div className="eachCard Product" onClick={()=>{scrollToTop();}}>
       <div className="photo">

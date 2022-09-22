@@ -8,15 +8,20 @@ function Postcode({sumAll}){
   let [roadAddress, setRoadAddress] = useState('');
   let [detailAddress, setDetailAddress] = useState('')
   let [isOpen, setIsOpen] = useState(false)
+
+  //complete시 자료 state에 담기
   const completeHandler = (data)=>{
     setZipCode(data.zonecode);
     setRoadAddress(data.roadAddress);
     setIsOpen(false);
   }
-  const toggle = ()=>{ //검색 클릭
+  //검색 클릭
+  const toggle = ()=>{
     setIsOpen(!isOpen);
   }
-  const changeHandler = (e)=>{setDetailAddress(e.target.value)} //상세주소검색 이벤트
+  //상세주소검색 이벤트
+  const changeHandler = (e)=>{setDetailAddress(e.target.value)}
+  //모달스타일
   let optimizedStyle ={
     overlay: {backgroundColor: "rgba(0,0,0,0.5)"},
     content: {
@@ -85,7 +90,7 @@ function Postcode({sumAll}){
           <tr>
             <th>결제방법</th>
             <td>
-              <input className="credit" type="radio" name="payment" /> 신용카드
+              <input className="credit" type="radio" name="payment" checked="checked"/> 신용카드
               <span className="space"></span>
               <input className="credit kakaopay" type="radio" name="payment" /> 카카오페이
             </td>

@@ -8,27 +8,34 @@ import store, { addItem } from './../store';
 function Detail({pang, chief}){
   
   useEffect(()=>{
+    //sessionStorage 등록
     let storage = JSON.parse(sessionStorage.getItem('watched'));
     storage.unshift(pang[id].id);
-    storage = new Set(storage); //배열의 중복을 제거
-    storage = Array.from(storage); //다시 배열화. 근데 이거 윗줄에서 작성할 때 애초에 [...new Set(storage)] 이렇게 하면 안되나?...
+    storage = [...new Set(storage)]; //배열내 중복 제거 후 storage = Array.from(storage) 즉, 재배열화
     sessionStorage.setItem('watched', JSON.stringify(storage));
 
-    let timer = setTimeout(()=>{ setNotice(false) },10000); 
-    return ()=>{//useEffect보다 먼저 실행
+    //깜짝이벤트 스위치 10초 땡하면 ->true에서 false로
+    let timer = setTimeout(()=>{ setNotice(false) },10000);
+    
+    //클리어
+    return ()=>{
       clearTimeout(timer);
     }
   },[]);
 
-  let {id} = useParams();//유저가 url파라미터에 입력한 것을 가져오려면 useParams()
+  //useParam으로 빵데이터 배열 내 오브젝트의 id와, 현재페이지의 파라미터를 id라고 작성하여 그 둘을 synchro화 했다는 의미로 명명
+  let {id} = useParams();
   let idSynchro = pang.find((pang)=>{
     return pang.id == id
   });
+
+  //깜짝이벤트 삼항연산자준비, 디폴트는 true
   let [notice,setNotice] = useState(true);
   let [countNum, setCountNum] = useState(1);
   let [totalPrice, setTotalPrice] = useState(idSynchro.price);
   let [index, setIndex] = useState(0);
   
+  //리덕스 dispatch
   let dispatch = useDispatch();
 
   return (
@@ -132,7 +139,9 @@ function Detail({pang, chief}){
           {
             chief.map((a, i) => {
               return(
+                <div key={i}>
                 <Card chief={chief[i]}></Card>
+                </div>
               );
             })
           }

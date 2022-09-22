@@ -1,7 +1,6 @@
 import data from "../data";
-import React, {useState} from 'react';
 
-function Slider({dataSlider, slideRef, slideCount, handleSlider }){
+function Slider({dataSlider, slideRef, slideCount, setSlideCount, handleSlider }){
   return(
   <div className="sliderOuter">
     <h2>진행중인 이벤트</h2>
@@ -9,7 +8,7 @@ function Slider({dataSlider, slideRef, slideCount, handleSlider }){
       {
         dataSlider.map((a, i)=>{
           return(
-            <li className="slide" key={dataSlider.id}>
+            <li className="slide" key={i}>
               <img src={ process.env.PUBLIC_URL + `/rollout${i + 1}.png`} className="optimDesk"/>
               <img src={ process.env.PUBLIC_URL + `/rolloutPhone${i + 1}.png` } className="optimPhone"/>
             </li>
@@ -21,10 +20,11 @@ function Slider({dataSlider, slideRef, slideCount, handleSlider }){
       {
         dataSlider.map((a, i)=>{
           return(
-            <button onClick={()=>{
+            <button key={i} onClick={()=>{
               handleSlider(i);
+              setSlideCount(i + 1)
             }}
-            className={i == (slideCount - 1) ? 'activeBtn' : 'numBtn'}
+            className={ i + 1 == slideCount ? 'activeBtn' : 'numBtn'}
             >{i + 1}</button>
           )
         })

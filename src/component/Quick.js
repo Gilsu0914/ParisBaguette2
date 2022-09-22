@@ -1,13 +1,8 @@
 import react from 'react';
 import {useNavigate} from 'react-router-dom';
 
-function Quick(){
+function Quick({scrollToTop}){
   
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-  })}
   let navigate = useNavigate();
   
   return (

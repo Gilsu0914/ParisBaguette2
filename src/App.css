@@ -232,6 +232,7 @@ footer{
   background-color: white; 
 }
 .activeBtn{
+  cursor: pointer;
   padding: 1vw 5vw;
   margin: 2vw;
   border: 1px solid;
