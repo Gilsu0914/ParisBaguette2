@@ -4,7 +4,7 @@ function Announce(){
   return (
     <div className='announContainer'>
       <div className="announcement">
-        <h2>공지사항</h2>
+        <h2>안내 드립니다.</h2>
         <ul>
           <li>
             <p>네이버페이 제휴 포인트 적립서비스 안내</p>

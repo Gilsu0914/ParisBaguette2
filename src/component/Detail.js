@@ -11,7 +11,7 @@ function Detail({pang, chief}){
     let storage = JSON.parse(sessionStorage.getItem('watched'));
     storage.unshift(pang[id].id);
     storage = new Set(storage); //배열의 중복을 제거
-    storage = Array.from(storage); //다시 배열화
+    storage = Array.from(storage); //다시 배열화. 근데 이거 윗줄에서 작성할 때 애초에 [...new Set(storage)] 이렇게 하면 안되나?...
     sessionStorage.setItem('watched', JSON.stringify(storage));
 
     let timer = setTimeout(()=>{ setNotice(false) },10000); 

@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useRef } from 'react'; 
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+
 import data from './data';
+import data2 from './data2';
 import chiefdata from './chiefdata';
+
+import Slider from './component/Slider';
 import Detail from './component/Detail';
 import Cart from './component/Cart';
 import Announce from './component/Announce';
@@ -13,6 +17,7 @@ import Quick from './component/Quick';
 
 
 function App() {
+
   let storage = JSON.parse(sessionStorage.getItem('watched'))
   useEffect(()=>{
     if(storage == null){
@@ -20,18 +25,50 @@ function App() {
     }
   },[]);
 
-  let [pang, setPang] = useState(data);
-  let [chief,setChief] = useState(chiefdata);
-  let [count, setCount] = useState(0);
-  let [more, setMore] = useState(12);
-  let [tab,setTab] = useState(0);
-  let [moreNum, setMoreNum] = useState(1);
-  let navigate = useNavigate();
+  let slideRef = useRef();
+  let [slideCount, setSlideCount] = useState(1)
+  const handleSlider = slideCount =>{
+    if(slideCount === 4){
+      slideRef.current.style.transform = 'translateX(0)'
+    }else{
+      slideRef.current.style.transform = `translateX( -${25 * slideCount}%)`;
+    }
+  };
+  useEffect(()=>{
+    const interval = setTimeout(()=>{
+      setSlideCount(()=>{
+        if(slideCount < dataSlider.length){
+          setSlideCount(slideCount + 1);
+        }else{
+          setSlideCount(1);
+        }
+      });
+      handleSlider(slideCount);
+
+      return()=> {
+        clearTimeout(interval);
+      }
+    }, 5000);
+  });
+
   const scrollToTop = ()=>{
     window.scrollTo({
     top: 0,
     behavior: 'smooth'
   })}
+
+  let [pang, setPang] = useState(data);
+  let [chief,setChief] = useState(chiefdata);
+  let [dataSlider, setDataSlider] = useState(data2);
+  let [count, setCount] = useState(0);
+  let [more, setMore] = useState(12);
+  let [tab,setTab] = useState(0);
+  let [moreNum, setMoreNum] = useState(1);
+  let navigate = useNavigate();
+  
+
+  
+
 
 
   return (
@@ -171,10 +208,10 @@ function App() {
                 : null
               }
               <div className='recentView'>
-                <h2>최근 본 상품</h2>
+                <h2>방금 보신 상품 어때요?</h2>
                 <div>
-                {
-                  storage !== null ? //최근 본 상품
+                { //최근 본 상품
+                  storage !== null ?
                   storage.map((a,i)=>{
                     if(i < 4){
                     return (
@@ -183,21 +220,11 @@ function App() {
                       </Link>
                     )}
                   })
-                  : <p>최근 본 상품이 없습니다.</p>
+                  :<p>최근 본 상품이 없습니다.</p>
                 }
                 </div>
               </div>
-              <div className='rollout'>
-                <h2>신상품 소개</h2>
-                <img className='eventDesktop' src={process.env.PUBLIC_URL + "/rollout.png"}/>
-                <img className='eventPhone' src={process.env.PUBLIC_URL + "/rolloutPhone.png"}/>
-              </div>
-              <div className="event">
-                <h2>진행중인 이벤트</h2>
-                <img className='eventDesktop' src={process.env.PUBLIC_URL + "/event.png"} />
-                <img className='eventPhone' src={process.env.PUBLIC_URL + "/eventPhone.png"} />
-              </div>
-              
+              <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} handleSlider={handleSlider}/>
             </div>
         }/>
         <Route path="/detail/:id" element={<div><Detail pang={pang} setPang={setPang} chief={chief}/></div>}/>

@@ -92,26 +92,19 @@ ul{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40% 15%;
-  margin-bottom: 30px;
   border-bottom: 1px solid rgb(230, 230, 230);
 }
-.event{
-  max-width: 1200px;
-  margin: 60px auto;
-}
-.eventDesktop{
+.innerDesktop{
   display: none;
 }
-.event h2, .announcement h2, .rollout h2, .pangMenu h2, .recentView h2{
+.sliderOuter h2, .announcement h2, .recentView h2{
   text-align: center;
   font-weight: 900;
-}
-.event img{
-  width: 100%;
+  font-size: 1.2rem;
 }
 .announContainer{
   padding: 40px 20px 60px;
-  margin: 0 auto;
+  margin: 30px auto 0;
   background-color: rgb(255, 255, 244);
 }
 .announcement{
@@ -192,10 +185,10 @@ footer{
 }
 .recentView h2{
   padding-bottom: 5px;
-  border-bottom: 1px solid rgb(228, 228, 228);
 }
 .recentView>div{
-  display: inline-block;
+  display: block;
+  margin: 30px 0;
 }
 .recentView img{
   width: 25%;
@@ -203,12 +196,50 @@ footer{
 .recentView p{
   text-align: center;
 }
-.rollout{
-  box-sizing: border-box;
-  margin: 60px 0;
+.sliderOuter{
+  overflow: hidden;
 }
-.rollout img{
+.sliderContainer{
+  width: 400%;
+  margin: 0 auto;
+  transition: 1s;
+  overflow: hidden;
+}
+.slide{
+  width: 25%;
+  float: left;
+}
+.slide img{
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.optimDesk{
+  display: none;
+}
+.buttonContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.numBtn{
+  cursor: pointer;
+  padding: 1vw 5vw;
+  margin: 2vw;
+  border: 1px solid;
+  border-radius: 5vw;
+  border: 1px solid #ccc;
+  background-color: white; 
+}
+.activeBtn{
+  padding: 1vw 5vw;
+  margin: 2vw;
+  border: 1px solid;
+  border-radius: 5vw;
+  color: rgb(163, 80, 163);
+  font-weight: 900;
+  border: 1px solid rgb(163, 80, 163);
+  background-color: white; 
 }
 .pangMenu{
   border-bottom: 1px solid grey;
@@ -223,7 +254,7 @@ footer{
 }
 .pangMenu ul li:hover{
   cursor: pointer;
-  color: rgb(154, 92, 192);
+  color: rgb(163, 80, 163);
 }
 .cardContainer{
   display: grid;
@@ -258,6 +289,7 @@ footer{
   padding: 10px 20px;
   border: 1px solid #ccc;
   cursor: pointer;
+  border-radius: 23px;
 }
 /*router 디테일*/
 @keyframes blink{
@@ -587,15 +619,15 @@ i{
   .innerFooter div{ 
     flex: 1 1 33%;
   }
-  .event h2, .announcement h2, .rollout h2, .pangMenu h2, .recentView h2{
-    font-size: 30px;
+  .sliderOuter h2 ,.announcement h2, .recentView h2{
+    font-size: 24px;
     text-align: left;
     margin-bottom: 20px;
   }
-  .eventDesktop{
+  .innerDesktop{
     display: unset;
   }
-  .eventPhone{
+  .innerPhone{
     display: none;
   }
   .announcement ul{
@@ -606,6 +638,13 @@ i{
   }
   .announcement p{
     width: 70%;
+  }
+  /*슬라이더*/
+  .optimPhone{
+    display: none;
+  }
+  .optimDesk{
+    display: unset;
   }
   /*router 메인쇼케이스*/
   .pangMenu ul{
@@ -709,13 +748,39 @@ i{
   .main-bg{
     height: 25vh;
   }
-  .event h2, .announcement h2, .rollout h2, .pangMenu h2{
-    font-size: 30px;
-    text-align: left;
-    margin-bottom: 20px;
+  .pangMenu ul{
+    justify-content: flex-start;
+    padding: 0;
+  }
+  .pangMenu ul li{
+    padding: 8px 20px;
+    border: 1px solid rgb(163, 80, 163);
+    border-radius: 23px;
+    margin-right: 25px;
   }
   .cardContainer{
     grid-template-columns: repeat(4,1fr);
+  }
+  .buttonContainer{
+    display: inline;
+    height: 30px;
+  }
+  .numBtn{
+    padding: 5px 20px;
+    margin: 10px 10px 0 0;
+    border: 1px solid;
+    border-radius: 5vw;
+    border: 1px solid #ccc;
+    background-color: white; 
+  }
+  .activeBtn{
+    padding: 5px 20px;
+    margin: 10px 10px 0 0;
+    border: 1px solid;
+    border-radius: 5vw;
+    border: 1px solid #ccc;
+    background-color: white; 
+    border: 1px solid rgb(163, 80, 163);
   }
   .upDetail{
     display: normal;
@@ -736,8 +801,5 @@ i{
   .Cart h4{
     margin-top: 60px;
     font-size: 1.5rem;
-  }
-  .pangMenu ul li{
-    font-size: 1.4rem;
   }
 }
