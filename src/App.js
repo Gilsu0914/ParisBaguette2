@@ -215,7 +215,7 @@ function App() {
                 : null
               }
               <div className='recentView'>
-                <h2>방금 보신 상품 어때요?</h2>
+                <h2>방금 보신 상품</h2>
                 <div>
                 { //최근 본 상품
                   storage !== null ?
