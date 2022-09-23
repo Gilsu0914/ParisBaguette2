@@ -99,13 +99,13 @@ function App() {
             <div className="MainShowCase">
               <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} setSlideCount={setSlideCount}z   handleSlider={handleSlider}/>
               <div className="pangMenu">
-                <h2>카테고리별 상품</h2>
+                <h2>OUR PRODUCTS</h2>
                 <ul>
-                  <li onClick={() => { setTab(0) }}>전체상품</li>
-                  <li onClick={() => { setTab(1) }}>빵/식빵</li>
-                  <li onClick={() => { setTab(2) }}>케이크</li>
-                  <li onClick={() => { setTab(3) }}>디저트</li>
-                  <li onClick={() => { setTab(4) }}>샐러드</li>
+                  <li onClick={() => { setTab(0) }}>ALL</li>
+                  <li onClick={() => { setTab(1) }}>BREAD</li>
+                  <li onClick={() => { setTab(2) }}>CAKE</li>
+                  <li onClick={() => { setTab(3) }}>DESERT</li>
+                  <li onClick={() => { setTab(4) }}>SALAD</li>
                 </ul>
               </div>
               {
@@ -141,7 +141,7 @@ function App() {
                           alert("더이상 상품이 없습니다.");
                         }
                       }}
-                    >더보기 {moreNum} / 4</button>
+                    >MORE {moreNum} / 4</button>
                   </div>
                 </div>
                 : null
@@ -215,7 +215,7 @@ function App() {
                 : null
               }
               <div className='recentView'>
-                <h2>방금 보신 상품</h2>
+                <h2>RECENTLY VIEWED ITEMS</h2>
                 <div>
                 { //최근 본 상품
                   storage !== null ?

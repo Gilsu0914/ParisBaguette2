@@ -5,7 +5,8 @@ import { addCount, subtractCount, deleteItem } from './../store';
 import Postcode from './Postcode';
 
 function Cart(){
-
+  
+  //redux
   let state = useSelector((state)=>{return state})
   let dispatch = useDispatch();
   let sumAll = state.cart.reduce((prev, curr) => {return prev + curr.totalPrice}, 0) + 3000;
@@ -55,9 +56,7 @@ function Cart(){
         </tbody>
       </table>
       <i>배송비 3,000원 별도입니다.</i>
-
       <Postcode sumAll={sumAll}/>
-      
     </div>
   );
 };

@@ -736,6 +736,9 @@ i{
   }
 }
 @media(min-width: 1024px){
+  .sliderOuter h2, .announcement h2, .pangMenu>h2, .recentView h2{
+    font-size: 2rem;
+  }
   .main-bg{
     height: 25vh;
   }

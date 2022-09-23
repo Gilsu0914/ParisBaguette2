@@ -6,7 +6,7 @@ function Quick({scrollToTop}){
   let navigate = useNavigate();
   
   return (
-  <>  
+  <div>  
     <div className="quick">
         <img className="sign" src={process.env.PUBLIC_URL + "/call.png"} />
     </div>
@@ -16,7 +16,7 @@ function Quick({scrollToTop}){
     }}>
     <img className="sign2" src={process.env.PUBLIC_URL + "/shopping-bag.png"}/>
     </div>
-  </>
+  </div>
   );
 };
 export default Quick;
