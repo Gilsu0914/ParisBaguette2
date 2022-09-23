@@ -97,10 +97,10 @@ ul{
 .innerDesktop{
   display: none;
 }
-.sliderOuter h2, .announcement h2, .recentView h2{
+.sliderOuter h2, .announcement h2, .pangMenu>h2, .recentView h2{
   text-align: center;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 .announContainer{
   padding: 40px 20px 60px;
@@ -183,9 +183,6 @@ footer{
 .recentView{
   margin-top: 60px;
 }
-.recentView h2{
-  padding-bottom: 5px;
-}
 .recentView>div{
   display: block;
   margin: 30px 0;
@@ -198,6 +195,7 @@ footer{
 }
 .sliderOuter{
   overflow: hidden;
+  margin: 30px 0 60px;
 }
 .sliderContainer{
   width: 400%;
@@ -219,12 +217,11 @@ footer{
 }
 .buttonContainer{
   width: 100%;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 .numBtn{
   cursor: pointer;
-  padding: 1vw 5vw;
+  padding: 1vw;
   margin: 2vw;
   border: 1px solid;
   border-radius: 5vw;
@@ -233,18 +230,16 @@ footer{
 }
 .activeBtn{
   cursor: pointer;
-  padding: 1vw 5vw;
+  padding: 1vw;
   margin: 2vw;
   border: 1px solid;
   border-radius: 5vw;
-  color: rgb(163, 80, 163);
-  font-weight: 900;
-  border: 1px solid rgb(163, 80, 163);
-  background-color: white; 
+  border: 1px solid rgb(116, 116, 116);
+  background-color: rgb(116, 116, 116); 
 }
 .pangMenu{
   border-bottom: 1px solid grey;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .pangMenu ul{
   display: flex;
@@ -620,11 +615,6 @@ i{
   .innerFooter div{ 
     flex: 1 1 33%;
   }
-  .sliderOuter h2 ,.announcement h2, .recentView h2{
-    font-size: 24px;
-    text-align: left;
-    margin-bottom: 20px;
-  }
   .innerDesktop{
     display: unset;
   }
@@ -677,7 +667,7 @@ i{
     margin-top: 0px;
   }
   .underDetail{
-    margin-top: 30px;
+    margin: 30px 0 60px;
     display: flex;
     justify-content: space-between;
   }
@@ -750,38 +740,17 @@ i{
     height: 25vh;
   }
   .pangMenu ul{
-    justify-content: flex-start;
+    justify-content: center;
     padding: 0;
   }
   .pangMenu ul li{
-    padding: 8px 20px;
+    padding: 5px 20px;
     border: 1px solid rgb(163, 80, 163);
     border-radius: 23px;
-    margin-right: 25px;
+    margin: 0 10px;
   }
   .cardContainer{
     grid-template-columns: repeat(4,1fr);
-  }
-  .buttonContainer{
-    display: inline;
-    height: 30px;
-  }
-  .numBtn{
-    padding: 5px 20px;
-    margin: 10px 10px 0 0;
-    border: 1px solid;
-    border-radius: 5vw;
-    border: 1px solid #ccc;
-    background-color: white; 
-  }
-  .activeBtn{
-    padding: 5px 20px;
-    margin: 10px 10px 0 0;
-    border: 1px solid;
-    border-radius: 5vw;
-    border: 1px solid #ccc;
-    background-color: white; 
-    border: 1px solid rgb(163, 80, 163);
   }
   .upDetail{
     display: normal;
@@ -802,5 +771,13 @@ i{
   .Cart h4{
     margin-top: 60px;
     font-size: 1.5rem;
+  }
+  .numBtn{
+    padding: 0.5vw;
+    margin: 0.5vw;
+  }
+  .activeBtn{
+    padding: 0.5vw;
+    margin: 0.5vw;
   }
 }

@@ -97,7 +97,9 @@ function App() {
       <Routes>
         <Route path="/" element={
             <div className="MainShowCase">
+              <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} setSlideCount={setSlideCount}z   handleSlider={handleSlider}/>
               <div className="pangMenu">
+                <h2>카테고리별 상품</h2>
                 <ul>
                   <li onClick={() => { setTab(0) }}>전체상품</li>
                   <li onClick={() => { setTab(1) }}>빵/식빵</li>
@@ -229,7 +231,6 @@ function App() {
                 }
                 </div>
               </div>
-              <Slider dataSlider={dataSlider} slideRef={slideRef} slideCount={slideCount} setSlideCount={setSlideCount}z   handleSlider={handleSlider}/>
             </div>
         }/>
         <Route path="/detail/:id" element={<div><Detail pang={pang} setPang={setPang} chief={chief}/></div>}/>

@@ -2,6 +2,7 @@ import react, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import store, { addItem } from './../store';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -37,6 +38,9 @@ function Detail({pang, chief}){
   
   //리덕스 dispatch
   let dispatch = useDispatch();
+
+
+  let navigate = useNavigate();
 
   return (
     <div className="Detail">
@@ -132,6 +136,7 @@ function Detail({pang, chief}){
           </table>
         </div>
       </div>
+      <div className='moreBtnContainer'><button className='moreBtn' onClick={()=>{navigate(-1)}}>뒤로가기</button></div>
       <div className='heightLine'></div>
       <div className='recommend'>
         <h2>만드신 분들을 소개합니다.</h2>

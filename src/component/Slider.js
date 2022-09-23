@@ -25,7 +25,7 @@ function Slider({dataSlider, slideRef, slideCount, setSlideCount, handleSlider }
               setSlideCount(i + 1)
             }}
             className={ i + 1 == slideCount ? 'activeBtn' : 'numBtn'}
-            >{i + 1}</button>
+            > </button>
           )
         })
       }
