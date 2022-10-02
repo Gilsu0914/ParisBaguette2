@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;900&display=swap');
+
+
+:root{
+  --color-blue: #033586;
+}
 body{
-  font-family: 'Apple SD 산돌고딕 Neo';
+  font-family: 'Noto Sans KR', sans-serif;
+  overflow-x: hidden;
 }
 a{
   text-decoration: none;
@@ -10,7 +17,7 @@ ul{
   padding: 0;
 }
 .quick{
-  background-color: rgb(249, 251, 199);
+  background-color: rgb(240, 240, 240);
   padding: 8px 8px 4px 8px;
   position: fixed;
   right: 16px;
@@ -20,7 +27,7 @@ ul{
   border-radius: 25px;
 }
 .quick2{
-  background-color: lavender;
+  background-color:rgb(240, 240, 240);
   padding: 8px;
   position: fixed;
   right: 16px;
@@ -31,7 +38,7 @@ ul{
   transition: 0.5s;
 }
 .quick2:hover{
-  background-color: rgb(254, 208, 222);
+  background-color: rgb(208, 229, 254);
 }
 .sign{
   width: 36px;
@@ -52,11 +59,12 @@ ul{
 /**/
 .home{
   text-decoration: none;
-  color: #7f8184;
+  color: white;
   cursor: pointer;
+  font-weight: 900;
 }
 .navContainer{
-  background-color: #f8f8f8;  
+  background-color: var(--color-blue);  
 }
 .innerNav{
   max-width: 1200px;
@@ -65,8 +73,6 @@ ul{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(230, 230, 230);
-
 }
 .navMenu{
   text-decoration: none;
@@ -87,12 +93,11 @@ ul{
   cursor: pointer;
 }
 .main-bg{
-  height: 20vh;
+  height: 15vh;
   background-image: url(coffee-23901362.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40% 15%;
-  border-bottom: 1px solid rgb(230, 230, 230);
 }
 .innerDesktop{
   display: none;
@@ -195,7 +200,7 @@ footer{
 }
 .sliderOuter{
   overflow: hidden;
-  margin: 30px 0 60px;
+  margin-bottom: 60px;
 }
 .sliderContainer{
   width: 400%;
@@ -211,6 +216,9 @@ footer{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.optimTablet{
+  display: none;
 }
 .optimDesk{
   display: none;
@@ -241,16 +249,20 @@ footer{
   border-bottom: 1px solid grey;
   margin-bottom: 30px;
 }
+.pangMenu>p{
+  text-align: center;
+  margin: 30px 0;
+}
 .pangMenu ul{
   display: flex;
   justify-content: space-around;
 }
 .pangMenu ul li{
-  font-weight: bold;
+  font-weight: 300;
 }
 .pangMenu ul li:hover{
   cursor: pointer;
-  color: rgb(163, 80, 163);
+  color: var(--color-blue);
 }
 .cardContainer{
   display: grid;
@@ -365,8 +377,8 @@ footer{
   padding: 20px 0;
   border: 0;
   cursor: pointer;
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: var(--color-blue);
+  color: white;
 }
 .notice{
   font-size: 12px;
@@ -399,7 +411,7 @@ footer{
   margin-bottom: 50px;
 }
 .review h2{
-  color: rgb(154, 92, 192);
+  color: var(--color-blue);
   font-weight: 900;
 }
 .review p{
@@ -580,6 +592,25 @@ i{
   height: 19px;
   margin-right: 5px;
 }
+/*텍스트 애니메이션*/
+.coverContainer{
+  margin: 100px 0;
+  overflow: hidden;
+}
+.cover{
+  width: 100vw;
+  overflow: hidden;
+  margin: 2rem 0;
+  display: flex;
+}
+.cover2{
+  justify-content: flex-end;
+}
+.parallel{
+  color: #ccc;
+  display: flex;
+}
+
 @media(min-width: 768px){
   .componentHead{
     font-size: 36px;
@@ -601,13 +632,21 @@ i{
     font-size: 15px;
     display: inline;
     padding-left:30px;
+    color: white;
+    font-weight: 500;
   }
   .iconArea{
     display: none;
   }
   .main-bg{
-    height: 15vh;
     background-attachment: fixed;
+  }
+  .numBtn{
+    padding: 0.5vw;
+    margin: 1vw;
+  }.activeBtn{
+    padding: 0.5vw;
+    margin: 1vw;
   }
   .cardContainer{
     grid-template-columns: repeat(3,1fr);
@@ -634,7 +673,7 @@ i{
   .optimPhone{
     display: none;
   }
-  .optimDesk{
+  .optimTablet{
     display: unset;
   }
   /*router 메인쇼케이스*/
@@ -642,8 +681,6 @@ i{
     padding: 0 120px;
   }
   .pangMenu ul li{
-    font-size: 1.2rem;
-    font-weight: 600;
     cursor: pointer;
   }
   /*router 디테일*/
@@ -739,18 +776,24 @@ i{
   .sliderOuter h2, .announcement h2, .pangMenu>h2, .recentView h2{
     font-size: 2rem;
   }
-  .main-bg{
-    height: 25vh;
+  .optimTablet{
+    display: none;
+  }
+  .optimDesk{
+    display: unset;
   }
   .pangMenu ul{
     justify-content: center;
     padding: 0;
   }
   .pangMenu ul li{
-    padding: 5px 20px;
+    padding: 5px 20px 7px;
     border: 1px solid #ccc;
     border-radius: 23px;
     margin: 0 10px;
+  }
+  .pangMenu ul li:hover{
+    border: 1px solid var(--color-blue);
   }
   .cardContainer{
     grid-template-columns: repeat(4,1fr);
@@ -776,11 +819,11 @@ i{
     font-size: 1.5rem;
   }
   .numBtn{
-    padding: 0.5vw;
-    margin: 0.5vw;
+    padding: 0.25vw;
+    margin: 0.25vw;
   }
   .activeBtn{
-    padding: 0.5vw;
-    margin: 0.5vw;
+    padding: 0.25vw;
+    margin: 0.25vw;
   }
 }

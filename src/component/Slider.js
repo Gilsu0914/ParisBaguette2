@@ -4,13 +4,13 @@ function Slider({dataSlider, slideRef, slideCount, setSlideCount, handleSlider }
   
   return(
     <div className="sliderOuter">
-      <h2>OUR PROMOTION</h2>
       <ul className="sliderContainer" ref={slideRef}>
         {
           dataSlider.map((a, i)=>{
             return(
               <li className="slide" key={i}>
-                <img src={ process.env.PUBLIC_URL + `/rollout${i + 1}.png`} className="optimDesk"/>
+                <img src={ process.env.PUBLIC_URL + `/rolloutPc${i + 1}.png`} className="optimDesk"/>
+                <img src={ process.env.PUBLIC_URL + `/rollout${i + 1}.png`} className="optimTablet"/>
                 <img src={ process.env.PUBLIC_URL + `/rolloutPhone${i + 1}.png` } className="optimPhone"/>
               </li>
             )
