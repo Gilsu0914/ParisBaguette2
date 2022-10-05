@@ -246,7 +246,7 @@ footer{
   background-color: rgb(116, 116, 116); 
 }
 .pangMenu{
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #ccc;
   margin-bottom: 30px;
 }
 .pangMenu>p{

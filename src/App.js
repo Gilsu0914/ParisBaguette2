@@ -64,7 +64,7 @@ function App() {
     behavior: 'smooth'
   })}
 
-  //데이터
+  //데이터들
   let [pang, setPang] = useState(data);
   let [dataSlider, setDataSlider] = useState(data2);
   let [chief,setChief] = useState(chiefdata);
@@ -77,7 +77,7 @@ function App() {
   let navigate = useNavigate();
 
 
-  //장식추가. 텍스트 애니메이션
+  //하단 텍스트 애니메이션
   let pTag1 = useRef();
   let pTag2 = useRef();
   const textArr1 = 'PARIS BAGUETTE -'.split(' ');
@@ -86,21 +86,21 @@ function App() {
   let count2 = 0;
 
   useEffect(()=>{
-    function initTexts(element, textArray){
+    function initTexts(pTag, textArray){
       textArray.push(...textArray)
       for(let i = 0; i < textArray.length; i++){
-        element.current.innerText += `${textArray[i]}\u00a0\u00a0\u00a0`
+        pTag.current.innerText += `${textArray[i]}\u00a0\u00a0\u00a0`
       }
     }
     initTexts(pTag1,textArr1);
     initTexts(pTag2,textArr2);
 
-    function marqueeText(count,element,direction){
-      if(count > element.scrollWidth / 2){
-        element.current.style.transform = `translateX(0)`
+    function marqueeText(count,pTag,direction){
+      if( count > pTag.scrollWidth / 2 ){
+        pTag.current.style.transform = `translateX(0)`
         count = 0
       }
-      element.current.style.transform = `translateX(${count * direction}px)`
+      pTag.current.style.transform = `translateX(${count * direction}px)`
       return count;
     }
 
@@ -108,13 +108,13 @@ function App() {
       count1++
       count2++
 
-      count1 = marqueeText(count1,pTag1,-1)
-      count2 = marqueeText(count2,pTag2, 1)
+      count1 = marqueeText(count1,pTag1,-1) //왼쪽으로
+      count2 = marqueeText(count2,pTag2, 1) //오른쪽으로
 
       window.requestAnimationFrame(animate)
     }
     animate();
-  }) //무한반복을 위한 []부재
+  }) //무한반복을 위한 []부재처리
 
 
   return (
