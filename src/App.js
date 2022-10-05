@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react'; 
+import {useState, useEffect} from 'react'; 
 import {Routes, Route, useNavigate, Navigate} from 'react-router-dom';
 
 import data from './data';
@@ -35,6 +35,15 @@ function App() {
     top: 0,
     behavior: 'smooth'
   })}
+
+  //sessionStorage window.onload되자마자 해주는 것이 안전
+  let storage = JSON.parse(sessionStorage.getItem('watched'))
+  useEffect(()=>{
+    //sessionStorage
+    if(storage == null){
+      sessionStorage.setItem('watched', JSON.stringify([ ]))
+    }
+  },[]);
   
 
   return (
@@ -45,7 +54,7 @@ function App() {
         <Route path="" element={
           <div>
             <Slider/>
-            <MainShowCase pang={pang} chiefdata={chiefdata} scrollToTop={scrollToTop} />
+            <MainShowCase storage={storage} pang={pang} chiefdata={chiefdata} scrollToTop={scrollToTop} />
           </div>
         }/>
         <Route path="/detail/:id" element={<div><Detail pang={pang} setPang={setPang} chief={chief}/></div>}/>

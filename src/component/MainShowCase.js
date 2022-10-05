@@ -2,24 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Card from './Card.js';
 
-const MainShowCase = ({pang, scrollToTop})=>{
+const MainShowCase = ({storage, pang, scrollToTop})=>{
 
   let [count, setCount] = useState(0);
   let [more, setMore] = useState(12);
   let [tab,setTab] = useState(0);
   let [moreNum, setMoreNum] = useState(1);
 
-
-  //sessionStorage
-  let storage = JSON.parse(sessionStorage.getItem('watched'))
-  useEffect(()=>{
-    //sessionStorage
-    if(storage == null){
-      sessionStorage.setItem('watched', JSON.stringify([ ]))
-    }
-  },[]);
-
-  
 
   return (
     <div className="MainShowCase">
@@ -171,7 +160,9 @@ const MainShowCase = ({pang, scrollToTop})=>{
         <div>
           {
             //최근 본 상품
-            storage.length != 0 ? (
+            (storage.length == 0 || storage == null) ?
+            <p> 최근 보신 상품이 아직 없습니다.</p>
+            : (
               storage.map((a, i) => {
                 if (i < 4) {
                   return (
@@ -186,8 +177,6 @@ const MainShowCase = ({pang, scrollToTop})=>{
                   );
                 }
               })
-            ) : (
-              <p> 최근 보신 상품이 아직 없습니다.</p>
             )
           }
         </div>
