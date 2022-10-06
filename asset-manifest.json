@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ParisBaguette2/static/css/main.6ba068c6.css",
-    "main.js": "/ParisBaguette2/static/js/main.d9e8387d.js",
+    "main.js": "/ParisBaguette2/static/js/main.237132b8.js",
     "static/js/787.a6e2f2b6.chunk.js": "/ParisBaguette2/static/js/787.a6e2f2b6.chunk.js",
     "static/media/coffee-23901362.jpg": "/ParisBaguette2/static/media/coffee-23901362.5121775ae5d63a5ca45b.jpg",
     "index.html": "/ParisBaguette2/index.html",
     "main.6ba068c6.css.map": "/ParisBaguette2/static/css/main.6ba068c6.css.map",
-    "main.d9e8387d.js.map": "/ParisBaguette2/static/js/main.d9e8387d.js.map",
+    "main.237132b8.js.map": "/ParisBaguette2/static/js/main.237132b8.js.map",
     "787.a6e2f2b6.chunk.js.map": "/ParisBaguette2/static/js/787.a6e2f2b6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6ba068c6.css",
-    "static/js/main.d9e8387d.js"
+    "static/js/main.237132b8.js"
   ]
 }
