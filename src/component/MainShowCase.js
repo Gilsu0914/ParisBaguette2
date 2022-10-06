@@ -160,7 +160,7 @@ const MainShowCase = ({storage, pang, scrollToTop})=>{
         <div>
           {
             //최근 본 상품
-            (storage.length == 0 || storage == null) ?
+            storage == null ?
             <p> 최근 보신 상품이 아직 없습니다.</p>
             : (
               storage.map((a, i) => {

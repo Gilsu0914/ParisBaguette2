@@ -20,9 +20,9 @@ function Slider(){
       slideRef.current.style.transform = `translateX( -${25 * slideCount}%)`;
     }
   };
-  useEffect(()=>{
-    //캐로셀 4초마다 동작
-    const interval = setTimeout(()=>{
+
+  const interval = ()=> {
+    setTimeout(()=>{
       setSlideCount(()=>{
         if(slideCount < dataSlider.length){
           setSlideCount(slideCount + 1);
@@ -31,15 +31,22 @@ function Slider(){
         }
       });
       handleSlider(slideCount); 
-    }, 4000);
-    
-    window.addEventListener('resize', function(){console.log('리사이즈 반응')})
+  }, 4000)};
 
+
+  useEffect(()=>{
+    //캐로셀 4초마다 동작
+    interval()
     //클리어
     return()=> {
       clearTimeout(interval);
     } 
   },[slideCount]);
+
+  useEffect(()=>{
+    window.addEventListener('resize', handleSlider())
+  })
+
 
   return(
     <div className="sliderOuter">
